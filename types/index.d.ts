@@ -3219,16 +3219,16 @@ declare namespace Knex {
   }
 
   interface SeederConfig<V extends {} = any> {
-    extension?: string;
     directory?: string | readonly string[];
+    extension?: string;
     loadExtensions?: readonly string[];
-    specific?: string;
-    timestampFilenamePrefix?: boolean;
     recursive?: boolean;
-    sortDirsSeparately?: boolean;
-    stub?: string;
-    variables?: V;
     seedSource?: SeedSource<unknown>;
+    sortDirsSeparately?: boolean;
+    specific?: string;
+    stub?: string;
+    timestampFilenamePrefix?: boolean;
+    variables?: V;
   }
 
   class Seeder {
