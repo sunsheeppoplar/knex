@@ -493,20 +493,20 @@ knex.migrate.latest({
 
 ## ECMAScript modules (ESM) Interoperability
 
-ECMAScript Module support for knex CLI's configuration, migration and seeds  
-enabled by the `--esm` flag, ECMAScript Interoperability is provided by the [_'esm'_](https://github.com/standard-things/esm) module.  
+ECMAScript Module support for knex CLI's configuration, migration and seeds
+enabled by the `--esm` flag, ECMAScript Interoperability is provided by the [_'esm'_](https://github.com/standard-things/esm) module.
 You can find [here](https://github.com/standard-things/esm) more information about 'esm' superpowers.
 
-Node 'mjs' files are handled by NodeJS own import mechanics  
-and do not require the use of the '--esm' flag.  
-But you might need it anyway for Node v10 under certain scenarios.  
+Node 'mjs' files are handled by NodeJS own import mechanics
+and do not require the use of the '--esm' flag.
+But you might need it anyway for Node v10 under certain scenarios.
 You can find details about NodeJS ECMAScript modules [here](https://nodejs.org/api/esm.html)
 
-While it is possible to mix and match different module formats (extensions)  
-between your knexfile, seeds and migrations,  
-some format combinations will require specific NodeJS versions,  
-_Notably mjs/cjs files will follow NodeJS import and require restrictions._  
-You can see [here](https://github.com/knex/knex/blob/master/test/cli/esm-interop.spec.js) many possible scenarios,  
+While it is possible to mix and match different module formats (extensions)
+between your knexfile, seeds and migrations,
+some format combinations will require specific NodeJS versions,
+_Notably mjs/cjs files will follow NodeJS import and require restrictions._
+You can see [here](https://github.com/knex/knex/blob/master/test/cli/esm-interop.spec.js) many possible scenarios,
 and [here](https://github.com/knex/knex/tree/master/test/jake-util/knexfile-imports) some sample configurations
 
 Node v10.\* require the use of the '--experimental-module' flag in order to use the 'mjs' or 'cjs' extension.
@@ -546,7 +546,7 @@ export default {
 };
 ```
 
-For the knexfile you can use a default export,  
+For the knexfile you can use a default export,
 it will take precedence over named export.
 
 ```ts
@@ -622,12 +622,12 @@ export function down(knex) {
 Each method takes an optional `config` object, which may specify the following properties:
 
 - `directory`: a relative path to the directory containing the seed files. Can be an array of paths (default `./seeds`)
+- `extension`: extension to be used for newly generated seeds (default `js`)
 - `loadExtensions`: array of file extensions which knex will treat as seeds. For example, if you have typescript transpiled into javascript in the same folder, you want to execute only javascript seeds. In this case, set `loadExtensions` to `['.js']` (Notice the dot!) (default `['.co', '.coffee', '.eg', '.iced', '.js', '.litcoffee', '.ls', '.ts']`)
 - `recursive`: if true, will find seed files recursively in the directory / directories specified
-- `specific`: a specific seed file or an array of seed files to run from the seeds directory, if its value is `undefined` it will run all the seeds (default `undefined`). If an array is specified, seed files will be run in the same order as the array
-- `sortDirsSeparately`: if true and multiple directories are specified, all seeds from a single directory will be executed before executing seeds in the next folder (default `false`)
 - `seedSource`: specify a custom seed source, see [Custom Seed Source](#custom-seed-sources) for more info (default filesystem)
-- `extension`: extension to be used for newly generated seeds (default `js`)
+- `sortDirsSeparately`: if true and multiple directories are specified, all seeds from a single directory will be executed before executing seeds in the next folder (default `false`)
+- `specific`: a specific seed file or an array of seed files to run from the seeds directory, if its value is `undefined` it will run all the seeds (default `undefined`). If an array is specified, seed files will be run in the same order as the array
 - `timestampFilenamePrefix`: whether timestamp should be added as a prefix for newly generated seeds (default `false`)
 
 ### make
